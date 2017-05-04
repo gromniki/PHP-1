@@ -80,7 +80,7 @@ h2.align-left {
   text-align: left;
 }
 h3 {
-  margin-bottom: 0;
+  margin-bottom: 10px;
   font-size: 15px;
   line-height: 18px;
   font-weight: bold;
@@ -136,6 +136,10 @@ strong,
     weight: bold;
   }
 }
+sup,
+sub {
+  font-size: 10px;
+}
 
 /* HEADER */
 .page-header {
@@ -181,4 +185,22 @@ strong,
     width: 100px;
     background-color: $opacity10grey;
   }
+}
+
+/* discriminant */
+.downline {
+  border-bottom: 1px solid #000;
+}
+.upline {
+  border-top: 1px solid black;
+}
+.downnumber {
+  td {
+    text-align: center;
+  }
+}
+
+/* FOOTER */
+footer {
+  margin-top: 50px;
 }

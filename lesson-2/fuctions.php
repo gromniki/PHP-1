@@ -13,4 +13,10 @@ assert(-39 == discriminant( 3, 4, 3));
 //var_dump(discriminant(2, 5, 2));
 
 
+// 3. Что возвращает оператор include
+function returnInclude()
+{
+    return include __DIR__ . '/include.php';
+}
+
 

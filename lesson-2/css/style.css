@@ -31,7 +31,7 @@ h2.align-left {
   text-align: left; }
 
 h3 {
-  margin-bottom: 0;
+  margin-bottom: 10px;
   font-size: 15px;
   line-height: 18px;
   font-weight: bold; }
@@ -83,6 +83,10 @@ strong,
 .bold {
   font-weight: bold; }
 
+sup,
+sub {
+  font-size: 10px; }
+
 /* HEADER */
 .page-header {
   height: 60px;
@@ -123,5 +127,19 @@ strong,
   .table-operand th {
     width: 100px;
     background-color: rgba(128, 128, 128, 0.1); }
+
+/* discriminant */
+.downline {
+  border-bottom: 1px solid #000; }
+
+.upline {
+  border-top: 1px solid black; }
+
+.downnumber td {
+  text-align: center; }
+
+/* FOOTER */
+footer {
+  margin-top: 50px; }
 
 /*# sourceMappingURL=style.css.map */
