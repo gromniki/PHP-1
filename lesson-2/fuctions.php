@@ -22,18 +22,46 @@ function returnInclude()
 // 4. Составьте функцию, которая на вход будет принимать имя человека, а возвращать его пол, пытаясь угадать по имени
 // (null - если угадать не удалось). Вам придется самостоятельно найти нужные вам строковые функции. Начните с написания тестов для функции.
 // http://fi2.php.net/manual/ru/ref.strings.php
+// http://fi2.php.net/manual/ru/function.mb-strtolower.php
 
-// Руслан, Роман, Андрей, Сергей, Павел,
-// Людмила, Ирина, Катерина, Анастасия, Светлана, Дарья, Мария, Маргарита
-
-$genderMan = 'Мужской';
-$genderWoman = 'Женский';
-
-$mens = 1;
+// Сергей, Роман, Пётр, Альберт, Аристарх, Артём, Денис, Вячеслав, Павел, Леонид
+// Людмила, Ирина, Анастасия, Светлана, Дарья, Любовь
 
 function gender($name)
 {
-    return $gender;
+    $lastCharacter = substr("$name", -2); // возвращает последнюю букву имени
+
+    // привожу строку к нижнему регистру, в случае, если пользователь введёт в верхнем регистре, и применяю нужную кодировку
+    $lowerLastCharacter = mb_strtolower($lastCharacter, 'UTF-8');
+
+    if (
+        $lowerLastCharacter == 'й' ||
+        $lowerLastCharacter == 'н' ||
+        $lowerLastCharacter == 'р' ||
+        $lowerLastCharacter == 'т' ||
+        $lowerLastCharacter == 'х' ||
+        $lowerLastCharacter == 'м' ||
+        $lowerLastCharacter == 'с' ||
+        $lowerLastCharacter == 'в' ||
+        $lowerLastCharacter == 'л' ||
+        $lowerLastCharacter == 'д'
+    ) {
+        return 'Мужчина';
+    } elseif (
+        $lowerLastCharacter == 'я' ||
+        $lowerLastCharacter == 'а' ||
+        $lowerLastCharacter == 'ь'
+    ) {
+        return 'Женщина';
+    } else {
+        return null;
+    }
 }
 
+assert('Мужчина' == gender('Роман'));
+assert('Женщина' == gender('Любовь'));
+assert(null == gender('колобок'));
+assert(null == gender(''));
+
+// var_dump(gender('Владислав'));
 

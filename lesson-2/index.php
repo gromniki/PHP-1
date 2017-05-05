@@ -2,8 +2,7 @@
 
 <main class="page-main">
     <section class="container-center">
-        <h1>Выполнение домашнего задания урока 2&nbsp;курса &laquo;PHP-1&raquo;</h1>
-        <p></p>
+        <h1>Прохождение курса Альберта Степанцева &laquo;PHP-1. Введение в профессию&raquo;</h1>
     </section>
 </main>
 
