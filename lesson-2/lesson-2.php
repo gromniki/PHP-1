@@ -19,13 +19,13 @@
                     </tr>
                     <tr>
                         <th>0</th>
-                        <td><?php echo (int)(0 && 0); ?></td>
-                        <td><?php echo (int)(0 && 1); ?></td>
+                        <td><?php echo (int)(false && false); ?></td>
+                        <td><?php echo (int)(false && true); ?></td>
                     </tr>
                     <tr>
                         <th>1</th>
-                        <td><?php echo (int)(1 && 0); ?></td>
-                        <td><?php echo (int)(1 && 1); ?></td>
+                        <td><?php echo (int)(true && false); ?></td>
+                        <td><?php echo (int)(true && true); ?></td>
                     </tr>
                 </table>
 
@@ -37,13 +37,13 @@
                     </tr>
                     <tr>
                         <th>0</th>
-                        <td><?php echo (int)(0 || 0); ?></td>
-                        <td><?php echo (int)(0 || 1); ?></td>
+                        <td><?php echo (int)(false || false); ?></td>
+                        <td><?php echo (int)(false || true); ?></td>
                     </tr>
                     <tr>
                         <th>1</th>
-                        <td><?php echo (int)(1 || 0); ?></td>
-                        <td><?php echo (int)(1 || 1); ?></td>
+                        <td><?php echo (int)(true || false); ?></td>
+                        <td><?php echo (int)(true || true); ?></td>
                     </tr>
                 </table>
 
@@ -55,13 +55,13 @@
                     </tr>
                     <tr>
                         <th>0</th>
-                        <td><?php echo (int)(0 xor 0); ?></td>
-                        <td><?php echo (int)(0 xor 1); ?></td>
+                        <td><?php echo (int)(false xor false); ?></td>
+                        <td><?php echo (int)(false xor true); ?></td>
                     </tr>
                     <tr>
                         <th>1</th>
-                        <td><?php echo (int)(1 xor 0); ?></td>
-                        <td><?php echo (int)(1 xor 1); ?></td>
+                        <td><?php echo (int)(true xor false); ?></td>
+                        <td><?php echo (int)(true xor true); ?></td>
                     </tr>
                 </table>
             </article>
@@ -102,7 +102,7 @@
                                 <tr>
                                     <td rowspan="2">x<sub>1,2</sub> =</td>
                                     <td class="downline">-(<?php echo $b; ?>) &#177; &#8730;<span
-                                                class="upline">(<?php echo $b; ?>
+                                            class="upline">(<?php echo $b; ?>
                                             )<sup>2</sup> - 4 &#215; <?php echo $a; ?>
                                             &#215; <?php echo $c; ?></span></td>
                                 </tr>
@@ -114,7 +114,7 @@
                                 <tr>
                                     <td rowspan="2">x<sub>1</sub> =</td>
                                     <td class="downline">-<?php echo $b; ?> + &#8730;<span
-                                                class="upline"><?php echo $D; ?></td>
+                                            class="upline"><?php echo $D; ?></td>
                                     <td rowspan="2"> = <?php echo $x1; ?> </td>
                                 </tr>
                                 <tr class="downnumber">
@@ -125,7 +125,7 @@
                                 <tr>
                                     <td rowspan="2">x<sub>2</sub> =</td>
                                     <td class="downline">-<?php echo $b; ?> - &#8730;<span
-                                                class="upline"><?php echo $D; ?></td>
+                                            class="upline"><?php echo $D; ?></td>
                                     <td rowspan="2"> = <?php echo $x2; ?> </td>
                                 </tr>
                                 <tr class="downnumber">
@@ -145,7 +145,7 @@
                                 <tr>
                                     <td rowspan="2">x =</td>
                                     <td class="downline">-(<?php echo $b; ?>) &#177; &#8730;<span
-                                                class="upline">(<?php echo $b; ?>
+                                            class="upline">(<?php echo $b; ?>
                                             )<sup>2</sup> - 4 &#215; <?php echo $a; ?>
                                             &#215; <?php echo $c; ?></span></td>
                                 </tr>
@@ -157,7 +157,7 @@
                                 <tr>
                                     <td rowspan="2">x =</td>
                                     <td class="downline">-<?php echo $b; ?> + &#8730;<span
-                                                class="upline"><?php echo $D; ?></td>
+                                            class="upline"><?php echo $D; ?></td>
                                     <td rowspan="2"> = <?php echo $x; ?> </td>
                                 </tr>
                                 <tr class="downnumber">
@@ -182,16 +182,21 @@
                     использовать как функцию?". Используйте руководство по языку, составьте и приложите примеры,
                     иллюстрирующие ваше исследование.</h3>
 
-                <p>Простое подключение оператора include выводит содержимое подключенного файла:<br>
-                    <?php include __DIR__ . '/include.php'; ?></p>
+                <p>Простое подключение оператора include выводит содержимое подключенного файла, то есть int(1):<br>
+                    <?php var_dump(include __DIR__ . '/include.php'); ?></p>
 
                 <p>Если включение происходит внутри функции включающего файла, тогда весь код, содержащийся во
                     включаемом файле, будет вести себя так, как будто он был определен внутри этой функции. То есть, он
                     будет в той же области видимости переменных этой функции. Исключением к этому правилу являются
                     магические константы, которые выполняются парсером перед тем, как происходит включение.</p>
-                <p>Вывод функции с возвращенным include:<br><?php echo returnInclude(); ?></p>
-                <p>В случае, когда файла нет, выводит предупреждение, что файла не
-                    существует: <?php include __DIR__ . '/include_delete.php'; ?></p>
+                <p>Возврат файлом значения:<br>
+                    <?php
+                    $x = include __DIR__ . '/include_return.php';
+                    var_dump($x);
+                    ?>
+                </p>
+                <p>Конструкция include выдаст warning, если не сможет найти
+                    файл: <?php include __DIR__ . '/file_does_not_exist.php'; ?></p>
             </article>
             <!-- /Задание 3. include как функция -->
 
