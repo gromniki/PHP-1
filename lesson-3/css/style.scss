@@ -260,6 +260,18 @@ select {
   }
 }
 
+/* image-page */
+.image-page {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background-color: $black;
+  img {
+    margin: auto;
+  }
+}
+
+
 /* FOOTER */
 footer {
   margin-top: 50px;

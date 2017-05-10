@@ -187,6 +187,15 @@ select {
     border: 7px solid white;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.15); }
 
+/* image-page */
+.image-page {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background-color: black; }
+  .image-page img {
+    margin: auto; }
+
 /* FOOTER */
 footer {
   margin-top: 50px; }

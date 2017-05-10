@@ -1,4 +1,9 @@
-<?php require __DIR__ . '/header.php'; ?>
+<?php
+
+require __DIR__ . '/header.php';
+require __DIR__ . '/image.php';
+
+?>
 
     <main class="page-main">
         <section class="container-center">
@@ -94,19 +99,21 @@
                 </h3>
 
                 <div class="gallery__list">
-                    <a href="/image.php?id=02">
-                        <img src="/img/fullpic-02.jpg" width="290" alt="">
-                    </a>
-                    <a href="/image.php?id=02">
-                        <img src="/img/fullpic-03.jpg" width="290" alt="">
-                    </a>
-                    <a href="/image.php?id=02">
-                        <img src="/img/fullpic-04.jpg" width="290" alt="">
-                    </a>
+                    <?php
+                    foreach ($images as $key => $value) {
+                        ?>
+
+                        <a href="/image.php?id=02">
+                            <img src="/img/<?php echo $value; ?>" width="290" alt="">
+                        </a>
+
+                        <?php
+                    }
+                    ?>
                 </div>
             </article>
             <!-- /Задание 2. Фотогалерея -->
         </section>
     </main>
 
-<?php include __DIR__ . '/footer.php'; ?>
+<?php require __DIR__ . '/footer.php'; ?>
