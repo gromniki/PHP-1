@@ -1,9 +1,4 @@
-<?php
-
-require __DIR__ . '/header.php';
-//require __DIR__ . '/image.php';
-
-?>
+<?php require __DIR__ . '/header.php'; ?>
 
     <main class="page-main">
         <section class="container-center">
@@ -26,9 +21,48 @@ require __DIR__ . '/header.php';
 
                 <?php
 
-                $num1 = $_GET['number1'];
-                $num2 = $_GET['number2'];
-                $operand = $_GET['arithmetic'];
+                // Проверяю, существует ли элемент массива с ключом number1 в массиве GET
+                if (isset($_GET['number1'])) {
+                    $num1 = $_GET['number1'];
+                } else {
+                    $num1 = 0;
+                }
+
+                // Проверяю, существует ли элемент массива с ключом number2 в массиве GET
+                if (isset($_GET['number2'])) {
+                    $num2 = $_GET['number2'];
+                } else {
+                    $num2 = 0;
+                }
+
+                if (isset($_GET['arithmetic'])) {
+                    $operand = $_GET['arithmetic'];
+
+                    switch ($operand) {
+                        case '+':
+                            $result = $num1 + $num2;
+                            break;
+                        case '-':
+                            $result = $num1 - $num2;
+                            break;
+                        case '*':
+                            $result = $num1 * $num2;
+                            break;
+                        case '/':
+                            $result = $num1 / $num2;
+                            break;
+                    }
+                } else {
+                    $operand = '+';
+                }
+
+                // Создаю массив со знаками операций
+                $operandArr = [
+                    1 => '+',
+                    2 => '-',
+                    3 => '*',
+                    4 => '/',
+                ];
 
                 var_dump($num1);
                 echo '<br>';
@@ -37,36 +71,9 @@ require __DIR__ . '/header.php';
                 var_dump($operand);
                 echo '<br>';
 
-                $operandArr = [
-                    1 => '+',
-                    2 => '-',
-                    3 => '*',
-                    4 => '/',
-                ];
-
-                var_dump($operandArr);
-                echo '<br>';
-
-                switch ($operand) {
-                    case '+':
-                        echo $num1 + $num2;
-                        break;
-                    case '-':
-                        echo $num1 - $num2;
-                        break;
-                    case '*':
-                        echo $num1 * $num2;
-                        break;
-                    case '/':
-                        echo $num1 / $num2;
-                        break;
-                }
-
                 echo $operand;
                 echo '<br>';
-                //$result = $num1 . $operand . $num2;
-                $result = $operand;
-                var_dump($result);
+
 
                 ?>
                 <form class="form-inline" action="/lesson-3.php" method="get">
@@ -77,7 +84,7 @@ require __DIR__ . '/header.php';
                         <select class="form-control" name="arithmetic">
 
                             <?php
-                            foreach ($operandArr as $value) {
+                            foreach ($operandArr as $key => $value) {
                                 ?>
 
                                 <option><?php echo $value; ?></option>
@@ -118,17 +125,24 @@ require __DIR__ . '/header.php';
                 </h3>
 
                 <div class="gallery__list">
-                    <?php
-                    foreach ($images as $key => $value) {
-                        ?>
-
-                        <a href="/image.php?id=<?php echo $value; ?>">
-                            <img src="/img/<?php echo $value; ?>" width="290" alt="">
-                        </a>
-
-                        <?php
-                    }
-                    ?>
+                    <a href="/image.php?id=1">
+                        <img src="/img/fullpic-02.jpg" width="290" alt="">
+                    </a>
+                    <a href="/image.php?id=2">
+                        <img src="/img/fullpic-03.jpg" width="290" alt="">
+                    </a>
+                    <a href="/image.php?id=3">
+                        <img src="/img/fullpic-04.jpg" width="290" alt="">
+                    </a>
+                    <a href="/image.php?id=4">
+                        <img src="/img/fullpic-05.jpg" width="290" alt="">
+                    </a>
+                    <a href="/image.php?id=5">
+                        <img src="/img/fullpic-06.jpg" width="290" alt="">
+                    </a>
+                    <a href="/image.php?id=6">
+                        <img src="/img/fullpic-07.jpg" width="290" alt="">
+                    </a>
                 </div>
             </article>
             <!-- /Задание 2. Фотогалерея -->

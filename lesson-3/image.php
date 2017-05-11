@@ -1,6 +1,6 @@
 <?php
 
-$image = $_GET['id'];
+$getImage = $_GET['id'];
 
 $images = [
     1 => 'fullpic-02.jpg',
@@ -12,10 +12,17 @@ $images = [
 ];
 
 //var_dump($images);
+require __DIR__ . '/header.php';
 
-?>
+foreach ($images as $key => $value) {
+    if ($getImage == $key) {
+        ?>
 
-<div class="image-page">
-    <img src="/img/<?php echo $image; ?>" alt="<?php echo $image; ?>"><br>
-    <a class="btn btn-success" href="/lesson-3.php">Назад</a>
-</div>
+        <img class="gallery__image" src="/img/<?php echo $value; ?>" alt="<?php echo $value; ?>"><br>
+        <a class="btn  btn-success  btn-back" href="/lesson-3.php">Назад</a>
+
+        <?php
+    }
+}
+
+require __DIR__ . '/footer.php';

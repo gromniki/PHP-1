@@ -66,8 +66,8 @@ body {
   margin: 0 auto;
 }
 h1 {
-  font-size: 48px;
-  line-height: 58px;
+  font-size: 34px;
+  line-height: 40px;
   font-weight: bold;
 }
 h2 {
@@ -183,6 +183,11 @@ select {
 .btn-success {
   background-color: $yellow;
 }
+.btn-back {
+  margin: 0 auto;
+  display: block;
+  width: 52px;
+}
 
 /* HEADER */
 .page-header {
@@ -258,6 +263,10 @@ select {
     border: 7px solid $white;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.15);
   }
+}
+.gallery__image {
+  display: block;
+  margin: 40px auto 10px;
 }
 
 /* image-page */
