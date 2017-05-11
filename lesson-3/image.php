@@ -16,6 +16,6 @@ $images = [
 ?>
 
 <div class="image-page">
-    <img src="/img/<?php echo $_GET['id']; ?>" alt=""><br>
+    <img src="/img/<?php echo $image; ?>" alt="<?php echo $image; ?>"><br>
     <a class="btn btn-success" href="/lesson-3.php">Назад</a>
 </div>

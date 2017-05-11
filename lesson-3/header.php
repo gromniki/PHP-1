@@ -1,4 +1,9 @@
-<?php require __DIR__ . '/fuctions.php'; ?>
+<?php require __DIR__ . '/fuctions.php';
+
+require __DIR__ . '/image.php';
+
+?>
+
 
 <!doctype html>
 <html lang="ru">

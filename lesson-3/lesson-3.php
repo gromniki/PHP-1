@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/header.php';
-require __DIR__ . '/image.php';
+//require __DIR__ . '/image.php';
 
 ?>
 
@@ -15,12 +15,10 @@ require __DIR__ . '/image.php';
                     <ul class="markers-list">
                         <li>Форма для ввода двух чисел, выбора знака операции и кнопка "равно"</li>
                         <li>Данные пусть передаются методом GET из формы (да, можно и так!) на скрипт, который их примет
-                            и
-                            выведет выражение и его результат
+                            и выведет выражение и его результат
                         </li>
                         <li>* Попробуйте улучшить программу. Пусть данные отправляются на ту же страницу на PHP,
-                            введенные
-                            числа останутся в input-ах, а результат появится после кнопки "равно"
+                            введенные числа останутся в input-ах, а результат появится после кнопки "равно"
                         </li>
                     </ul>
                 </h3>
@@ -37,6 +35,16 @@ require __DIR__ . '/image.php';
                 var_dump($num2);
                 echo '<br>';
                 var_dump($operand);
+                echo '<br>';
+
+                $operandArr = [
+                    1 => '+',
+                    2 => '-',
+                    3 => '*',
+                    4 => '/',
+                ];
+
+                var_dump($operandArr);
                 echo '<br>';
 
                 switch ($operand) {
@@ -67,10 +75,21 @@ require __DIR__ . '/image.php';
                         <input class="form-control" type="number" name="number1" placeholder="Число 1"
                                value="<?php echo $num1; ?>">
                         <select class="form-control" name="arithmetic">
-                            <option>+</option>
-                            <option>-</option>
+
+                            <?php
+                            foreach ($operandArr as $value) {
+                                ?>
+
+                                <option><?php echo $value; ?></option>
+
+                                <?php
+                            }
+                            ?>
+
+
+                            <!--<option>-</option>
                             <option>*</option>
-                            <option>/</option>
+                            <option>/</option>-->
                         </select>
                         <input class="form-control" type="number" name="number2" placeholder="Число 2"
                                value="<?php echo $num2; ?>">
@@ -103,7 +122,7 @@ require __DIR__ . '/image.php';
                     foreach ($images as $key => $value) {
                         ?>
 
-                        <a href="/image.php?id=02">
+                        <a href="/image.php?id=<?php echo $value; ?>">
                             <img src="/img/<?php echo $value; ?>" width="290" alt="">
                         </a>
 
