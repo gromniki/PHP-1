@@ -1,5 +1,51 @@
-<?php require __DIR__ . '/header.php'; ?>
+<?php
 
+// Проверяю, существует ли элемент массива с ключом number1 в массиве GET
+if (isset($_GET['number1'])) {
+    $num1 = $_GET['number1'];
+} else {
+    $num1 = 0;
+}
+
+// Проверяю, существует ли элемент массива с ключом number2 в массиве GET
+if (isset($_GET['number2'])) {
+    $num2 = $_GET['number2'];
+} else {
+    $num2 = 0;
+}
+
+if (isset($_GET['arithmetic'])) {
+    $operand = $_GET['arithmetic'];
+
+    switch ($operand) {
+        case '+':
+            $result = $num1 + $num2;
+            break;
+        case '-':
+            $result = $num1 - $num2;
+            break;
+        case '*':
+            $result = $num1 * $num2;
+            break;
+        case '/':
+            $result = $num1 / $num2;
+            break;
+    }
+} else {
+    $operand = '';
+}
+
+// Создаю массив со знаками операций
+$operandArr = [
+    1 => '+',
+    2 => '-',
+    3 => '*',
+    4 => '/',
+];
+
+require __DIR__ . '/header.php';
+
+?>
     <main class="page-main">
         <section class="container-center">
             <h1>Выполнение домашнего задания урока 3&nbsp;курса &laquo;PHP-1&raquo;</h1>
@@ -18,64 +64,6 @@
                     </ul>
                 </h3>
 
-
-                <?php
-
-                // Проверяю, существует ли элемент массива с ключом number1 в массиве GET
-                if (isset($_GET['number1'])) {
-                    $num1 = $_GET['number1'];
-                } else {
-                    $num1 = 0;
-                }
-
-                // Проверяю, существует ли элемент массива с ключом number2 в массиве GET
-                if (isset($_GET['number2'])) {
-                    $num2 = $_GET['number2'];
-                } else {
-                    $num2 = 0;
-                }
-
-                if (isset($_GET['arithmetic'])) {
-                    $operand = $_GET['arithmetic'];
-
-                    switch ($operand) {
-                        case '+':
-                            $result = $num1 + $num2;
-                            break;
-                        case '-':
-                            $result = $num1 - $num2;
-                            break;
-                        case '*':
-                            $result = $num1 * $num2;
-                            break;
-                        case '/':
-                            $result = $num1 / $num2;
-                            break;
-                    }
-                } else {
-                    $operand = '+';
-                }
-
-                // Создаю массив со знаками операций
-                $operandArr = [
-                    1 => '+',
-                    2 => '-',
-                    3 => '*',
-                    4 => '/',
-                ];
-
-                var_dump($num1);
-                echo '<br>';
-                var_dump($num2);
-                echo '<br>';
-                var_dump($operand);
-                echo '<br>';
-
-                echo $operand;
-                echo '<br>';
-
-
-                ?>
                 <form class="form-inline" action="/lesson-3.php" method="get">
                     <fieldset>
                         <legend>Простой калькулятор</legend>
@@ -84,19 +72,23 @@
                         <select class="form-control" name="arithmetic">
 
                             <?php
-                            foreach ($operandArr as $key => $value) {
+                            foreach ($operandArr as $oper) {
                                 ?>
 
-                                <option><?php echo $value; ?></option>
+                                <option value="<?php echo $oper; ?>"
+                                    <?php
+                                    if ($operand == $oper) {
+                                        ?>
+                                        selected
+                                        <?php
+                                    }
+                                    ?>
+                                ><?php echo $oper; ?></option>
 
                                 <?php
                             }
                             ?>
 
-
-                            <!--<option>-</option>
-                            <option>*</option>
-                            <option>/</option>-->
                         </select>
                         <input class="form-control" type="number" name="number2" placeholder="Число 2"
                                value="<?php echo $num2; ?>">
