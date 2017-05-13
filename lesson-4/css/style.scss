@@ -1,0 +1,294 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700&subset=cyrillic');
+$fontN: 'Roboto', sans-serif;
+
+$white: rgba(255, 255, 255, 1);
+$opacity90White: rgba(255, 255, 255, 0.9);
+$opacity25White: rgba(255, 255, 255, 0.25);
+$black: rgba(0, 0, 0, 1);
+$yellow: #fdd51d;
+$grey: rgba(128, 128, 128, 1);
+$opacity10grey: rgba(128, 128, 128, 0.1);
+$lightGrey: #aaa;
+
+$linkHover: rgb(233, 67, 45);
+$linkUnderline: rgba(0, 0, 0, 0.25);
+
+$bgNavColor: rgba(54, 54, 54, 1);
+
+
+/* MIXINS */
+@mixin underlineNav {
+  border-bottom: 1px solid $opacity25White;
+
+  &:hover {
+    color: $linkHover;
+    border-bottom: 1px solid $linkHover;
+  }
+}
+
+@mixin underline {
+  border-bottom: 1px solid $linkUnderline;
+
+  &:hover {
+    color: $linkHover;
+    border-bottom: 1px solid $linkHover;
+  }
+}
+
+@mixin activeLink {
+  border-bottom: 2px solid $linkHover;
+}
+
+@mixin noUnderline {
+  border-bottom: none;
+
+  &:hover {
+    border-bottom: none;
+  }
+}
+
+
+/* SCAFFOLDING */
+body {
+  font-size: 15px;
+  line-height: 18px;
+  font-family: $fontN;
+  -webkit-font-smoothing: subpixel-antialiased !important;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility:    hidden;
+  -ms-backface-visibility:     hidden;
+  background: url('/img/bkg2.jpg') center repeat-y;
+  background-attachment: fixed;
+}
+.container-center {
+  max-width: 960px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 34px;
+  line-height: 40px;
+  font-weight: bold;
+}
+h2 {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+h2.align-left {
+  text-align: left;
+}
+h3 {
+  margin: 20px 0 10px;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: bold;
+}
+p {
+  margin: 0 0 15px;
+  font-size: 15px;
+  line-height: 18px;
+  font-family: $fontN;
+}
+a {
+  color: $black;
+  text-decoration: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul.markers-list {
+  margin: 20px 0 20px 30px;
+  list-style: circle;
+  li {
+    padding-bottom: 10px;
+  }
+}
+ol {
+  margin: 20px 0 20px 30px;
+  padding: 0;
+  li {
+    padding-bottom: 10px;
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+figure {
+  margin: 0;
+}
+address {
+  font-style: normal;
+}
+button:active,
+button:focus {
+  outline: none;
+  border: 0;
+}
+strong,
+.bold {
+  font: {
+    weight: bold;
+  }
+}
+sup,
+sub {
+  font-size: 10px;
+}
+
+fieldset {
+  margin: 20px 0;
+  padding: 20px 25px 30px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+}
+legend {
+  margin-left: 6px;
+  padding: 0 5px;
+  font: {
+    weight: bold;
+  }
+}
+
+input,
+select,
+textarea {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.fullsize {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn {
+  margin: 0 5px;
+  padding: 9px 15px;
+  font: {
+    size: 18px;
+    weight: bold;
+  }
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-success {
+  background-color: $yellow;
+}
+.btn-back {
+  margin: 0 auto;
+  display: block;
+  width: 52px;
+}
+
+/* HEADER */
+.page-header {
+  height: 60px;
+  background-color: $yellow;
+}
+/* Main Nav */
+.main-nav {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  li {
+    padding: 0 25px 0 0;
+    &:last-child {
+      padding: 0;
+    }
+  }
+  a {
+    @include underlineNav;
+  }
+}
+
+/* MAIN */
+/* table */
+.table-operand {
+  min-height: 100px;
+  width: 300px;
+  margin: 20px 0;
+  padding: 15px;
+  border: 2px solid $grey;
+  border-collapse: collapse;
+  caption {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  th,
+  td {
+    padding: 0 5px;
+    text-align: center;
+    border: 1px solid $grey;
+  }
+  th {
+    width: 100px;
+    background-color: $opacity10grey;
+  }
+}
+
+/* equation */
+.equation__table {
+  margin-top: 10px;
+}
+
+/* discriminant */
+.downline {
+  border-bottom: 1px solid #000;
+}
+.upline {
+  border-top: 1px solid black;
+}
+.downnumber {
+  td {
+    text-align: center;
+  }
+}
+
+/* gallery */
+.gallery__list {
+  display: flex;
+  flex-wrap: wrap;
+  img {
+    width: 290px;
+    margin: 7px;
+    border: 7px solid $white;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.15);
+  }
+}
+.gallery__image {
+  display: block;
+  margin: 40px auto 10px;
+}
+
+/* image-page */
+.image-page {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background-color: $black;
+  img {
+    margin: auto;
+  }
+}
+
+
+/* FOOTER */
+footer {
+  margin-top: 50px;
+}
