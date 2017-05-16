@@ -2,11 +2,40 @@
 
 require __DIR__ . '/header.php';
 
+if (isset($_FILES['fileimage'])) {
+    $f = $_FILES['fileimage'];
+
+    // создаю переменную с размером файла
+    $size = 1024000;
+
+    // В начале использовал функцию basename http://php.net/manual/ru/function.basename.php,
+    // чтобы оставалось имя файла, как на компьютере пользователя, но потом понял, что она не нужна
+    // и отказался от неё.
+    $fupload = __DIR__ . '/img/uploads/' . $f['name'];
+
+
+    if (0 == $f['error']) {
+        // Проверяю тип файла JPG или PNG
+        if ('image/jpeg' == $f['type'] || 'image/png' == $f['type']) {
+            if ($f['size'] > $size) {
+                echo 'Превышен размер файла в 1 Мб. Выберите картинку меньшего размера';
+            } else {
+                move_uploaded_file($f['tmp_name'], $fupload);
+                echo 'Файл ' . $f['name'] . ' успешно загружен';
+            }
+        } else {
+            echo 'Не правильный тип файла. Можно только JPG или PNG';
+        }
+    } else {
+        echo 'Вы не выбрали картинку';
+    }
+}
+
 ?>
+
     <main class="page-main">
         <section class="container-center">
             <h1>Выполнение домашнего задания урока 4&nbsp;курса &laquo;PHP-1&raquo;</h1>
-
             <!-- Задание 1. Гостевая книга -->
             <article class="guestbook">
                 <h3>1. Алгоритм создания гостевой книги<br>
@@ -32,31 +61,21 @@ require __DIR__ . '/header.php';
 
                 <!-- Вывод комментариев -->
                 <?php
-                foreach (readComments(__DIR__ . '/comments.txt') as $comment) {
+                foreach (readFiles(__DIR__ . '/data/comments.txt') as $comment) {
                     ?>
                     <p><?php echo $comment; ?></p>
+                    <hr>
                     <?php
                 }
                 ?>
-
-                <?php
-
-                
-
-
-
-                ?>
-
                 <!-- /Вывод комментариев -->
 
                 <!-- Форма добавления комментария -->
-                <form action="/lesson-4.php" method="post">
+                <form action="/add.php" method="post">
                     <fieldset>
                         <legend>Добавить комментарий</legend>
-                        <input class="fullsize" type="text" name="name" placeholder="Ваше имя">
                         <textarea class="fullsize" name="comment" id="" cols="30" rows="4"
                                   placeholder="Ваш комментарий"></textarea>
-
                         <button type="submit" class="btn btn-success">Добавить комментарий</button>
                     </fieldset>
                 </form>
@@ -75,36 +94,10 @@ require __DIR__ . '/header.php';
                     </ul>
                 </h3>
 
-                <?php
-
-                if (isset($_FILES['fileimage'])) {
-                    $f = $_FILES['fileimage'];
-
-                    // Использую функцию basename  http://php.net/manual/ru/function.basename.php,
-                    // чтобы осталось имя файла, как на компьютере пользователя
-                    $fupload = __DIR__ . '/img/uploads/' . basename($f['name']);
-
-                    if (0 == $f['error']) {
-                        // Проверяю тип файла JPG или PNG
-                        if ($f['type'] == 'image/jpeg' || $f['type'] == 'image/png') {
-                            $uploaded = move_uploaded_file($f['tmp_name'], $fupload);
-                        } else {
-                            echo 'Не правильный тип файла. Можно только JPG или PNG';
-                        }
-                    } else {
-                        echo 'Вы не выбрали картинку';
-                    }
-                }
-
-                //var_dump($f);
-
-                ?>
-
                 <form action="/lesson-4.php" method="post" enctype="multipart/form-data">
                     <fieldset>
                         <legend>Загрузить картинку</legend>
                         <input type="file" name="fileimage">
-
                         <button type="submit" class="btn btn-success">Отправить картинку</button>
                     </fieldset>
                 </form>

@@ -1,12 +1,12 @@
 <?php
 
 // Функция чтения файла и возвращения его строк в виде массива. Используется для чтения файла с комментариями.
-function readComments($path)
+function readFiles($path)
 {
-    return $comments = file($path);
+    return file($path, FILE_IGNORE_NEW_LINES);
 }
 
-//var_dump(readComments(__DIR__ . '/comments.txt'));
+//var_dump(readComments(__DIR__ . '/data/comments.txt'));
 
 
 // Функция вычисления дискриминанта квадратного уравнения
