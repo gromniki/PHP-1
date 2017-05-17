@@ -14,8 +14,16 @@ $cities = [
 function city($char)
 {
     $firstChar = substr($city, 1);
-    return $city;
+    //in_array('$char');
+    //return $city;
 }
+
+
+// echo city('A');
+// выведет Архангельск
+
+//var_dump(1=="1");
+//var_dump([1.5=>12,2=>2]);
 
 ?>
 
@@ -41,15 +49,29 @@ function city($char)
                 <!-- /Вывод городов -->
 
                 <!-- Форма добавления комментария -->
-                <form action="/add.php" method="post">
+                <form action="/lesson-5.php" method="post">
                     <fieldset>
-                        <legend>Добавить комментарий</legend>
-                        <textarea class="fullsize" name="comment" id="" cols="30" rows="4"
-                                  placeholder="Ваш комментарий"></textarea>
-                        <button type="submit" class="btn btn-success">Добавить комментарий</button>
+                        <legend>Играем в города</legend>
+                        <label for="city">Введите название города</label>
+                        <input type="text" name="city" id="city" required>
+                        <button type="submit" class="btn btn-success">Узнать ответ</button>
                     </fieldset>
                 </form>
                 <!-- /Форма добавления комментария -->
+
+                <?php
+
+                if (isset($_POST['city'])) {
+                    $city = $_POST['city'];
+                    $res = mb_substr($city, -1, null, 'UTF-8');
+                }
+
+                echo $res;
+
+                ?>
+
+
+
             </article>
             <!-- /Задание 1. Игра в города -->
         </section>
