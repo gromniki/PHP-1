@@ -16,8 +16,11 @@ function city($char, $arrCities)
     return null;
 }
 
-assert('Архангельск' == city('А', $cities));
-//assert('Кириши' == city('к', $cities));
+assert('Санкт-Петербург' === city('с', $cities));
+assert('Архангельск' === city('А', $cities));
+assert('Кострома' === city('к', $cities));
+assert('Электрогорск' === city('Э', $cities));
+assert('Улан-Удэ' === city('у', $cities));
 
 
 // Функция чтения файла и возвращения его строк в виде массива. Используется для чтения файла с комментариями.
