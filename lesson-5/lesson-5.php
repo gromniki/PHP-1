@@ -2,28 +2,18 @@
 
 require __DIR__ . '/header.php';
 
-$cities = [
-    'Архангельск',
-    'Кириши',
-    'Иркутск',
-    'Кострома',
-    'Абакан',
-    'Нея'
-];
+if (isset($_POST['city'])) {
+    $city = $_POST['city'];
+    $char = mb_substr($city, -1, null, 'UTF-8');
 
-function city($char)
-{
-    $firstChar = substr($city, 1);
-    //in_array('$char');
-    //return $city;
+    // Отсекаю мягкий и твердый знаки, так как городов на такие буквы не существует
+    // А на букву Ы оказывается есть города https://traditio.wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%B2_%D0%BD%D0%B0_%D0%B1%D1%83%D0%BA%D0%B2%D1%83_%D0%AB
+    if ('ь' == $char || 'ъ' == $char) {
+        $char = mb_substr($city, -2, 1, 'UTF-8');
+    }
+} else {
+    $char = null;
 }
-
-
-// echo city('A');
-// выведет Архангельск
-
-//var_dump(1=="1");
-//var_dump([1.5=>12,2=>2]);
 
 ?>
 
@@ -44,33 +34,15 @@ function city($char)
                     </ul>
                 </h3>
 
-                <!-- Вывод городов -->
-
-                <!-- /Вывод городов -->
-
-                <!-- Форма добавления комментария -->
                 <form action="/lesson-5.php" method="post">
                     <fieldset>
                         <legend>Играем в города</legend>
                         <label for="city">Введите название города</label>
                         <input type="text" name="city" id="city" required>
                         <button type="submit" class="btn btn-success">Узнать ответ</button>
+                        <span><?php echo city($char, $cities); ?></span>
                     </fieldset>
                 </form>
-                <!-- /Форма добавления комментария -->
-
-                <?php
-
-                if (isset($_POST['city'])) {
-                    $city = $_POST['city'];
-                    $res = mb_substr($city, -1, null, 'UTF-8');
-                }
-
-                echo $res;
-
-                ?>
-
-
 
             </article>
             <!-- /Задание 1. Игра в города -->
