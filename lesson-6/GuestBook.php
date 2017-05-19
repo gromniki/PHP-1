@@ -10,8 +10,11 @@
 
 class GuestBook
 {
-    protected function __construct($path) {
+    protected $data;
+
+    public function __construct($path) {
         $this->path = $path;
+        return $this->data;
     }
 
     public function getData()
@@ -21,16 +24,22 @@ class GuestBook
 
     public function append($text)
     {
+        //$this->text = ;
+
         $text[] = $_POST['comment'];
         //return $this->path;
     }
 
     public function save()
     {
-        file_put_contents(__DIR__ . '/data/comments.txt', implode("\n", $text));
+        return $this;
+        //return file_put_contents(__DIR__ . '/data/comments.txt', implode("\n", $text));
     }
 }
 
 $guestbook = new GuestBook(__DIR__ . '/data/comments.txt');
+
+//$guestbook
+//$guestbook->save();
 
 var_dump($guestbook);
