@@ -3,7 +3,6 @@
 require __DIR__ . '/GuestBook.php';
 require __DIR__ . '/Uploader.php';
 //require __DIR__ . '/Table.php';
-require __DIR__ . '/functions.php';
 
 ?>
 
@@ -25,20 +24,18 @@ require __DIR__ . '/functions.php';
     <section class="container-center">
         <h1>Выполнение домашнего задания урока 6&nbsp;курса &laquo;PHP-1&raquo;. ООП.</h1>
         <!-- Задание 1.  -->
-
         <article>
             <?php
             foreach ($guestBook->getData() as $line) {
                 ?>
                 <p><?php echo $line; ?></p>
                 <hr>
-
                 <?php
             }
             ?>
         </article>
 
-        <article class="">
+        <article>
             <form action="/GuestBook.php" method="post">
                 <fieldset>
                     <legend>Добавить комментарий</legend>
@@ -51,7 +48,6 @@ require __DIR__ . '/functions.php';
         <!-- /Задание 1.  -->
     </section>
 </main>
-
 
 </body>
 </html>
