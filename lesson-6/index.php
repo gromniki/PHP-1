@@ -1,7 +1,8 @@
 <?php
 
 require __DIR__ . '/GuestBook.php';
-require __DIR__ . '/Table.php';
+require __DIR__ . '/Uploader.php';
+//require __DIR__ . '/Table.php';
 require __DIR__ . '/functions.php';
 
 ?>
@@ -24,15 +25,32 @@ require __DIR__ . '/functions.php';
     <section class="container-center">
         <h1>Выполнение домашнего задания урока 6&nbsp;курса &laquo;PHP-1&raquo;. ООП.</h1>
         <!-- Задание 1.  -->
-        <article class="">
 
+        <article>
+            <?php
+            foreach ($guestBook->getData() as $line) {
+                ?>
+                <p><?php echo $line; ?></p>
+                <hr>
+
+                <?php
+            }
+            ?>
+        </article>
+
+        <article class="">
+            <form action="/GuestBook.php" method="post">
+                <fieldset>
+                    <legend>Добавить комментарий</legend>
+                    <textarea class="fullsize" name="comment" id="" cols="30" rows="4"
+                              placeholder="Ваш комментарий"></textarea>
+                    <button type="submit" class="btn btn-success">Добавить комментарий</button>
+                </fieldset>
+            </form>
         </article>
         <!-- /Задание 1.  -->
     </section>
 </main>
-
-
-
 
 
 </body>
