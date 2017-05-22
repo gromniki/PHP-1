@@ -2,7 +2,7 @@
 /**
  * 1. Создайте класс GuestBook, который будет удовлетворять следующим требованиям:
  * • В конструктор передается путь до файла с данными гостевой книги, в нём же происходит чтение данных из ней (используйте
- * защищенное свойство объекта для хранения данных)
+ *   защищенное свойство объекта для хранения данных)
  * • Метод getData() возвращает массив записей гостевой книги
  * • Метод append($text) добавляет новую запись к массиву записей
  * • Метод save() сохраняет массив в файл
@@ -12,34 +12,35 @@ class GuestBook
 {
     protected $data;
 
-    public function __construct($path) {
+    public function __construct($path, $data)
+	{
         $this->path = $path;
-        return $this->data;
+        $this->data = $data;
     }
 
     public function getData()
     {
-        //$comments = readFiles(__DIR__ . '/data/comments.txt');
+		return $this->data;
     }
 
     public function append($text)
     {
-        //$this->text = ;
-
-        $text[] = $_POST['comment'];
-        //return $this->path;
+        $this->data[] = $text;
     }
 
     public function save()
     {
-        return $this;
+        //return $this;
         //return file_put_contents(__DIR__ . '/data/comments.txt', implode("\n", $text));
     }
 }
 
-$guestbook = new GuestBook(__DIR__ . '/data/comments.txt');
+$guestBook = new GuestBook(__DIR__ . '/data/comments.txt', file(__DIR__ . '/data/comments.txt', FILE_IGNORE_NEW_LINES));
+//$guestBook->getData();
+$guestBook->append(isset($_POST['comment']));
+//$guestBook->append($text[] = $_POST['comment']);
 
-//$guestbook
+
 //$guestbook->save();
 
-var_dump($guestbook);
+var_dump($guestBook);
