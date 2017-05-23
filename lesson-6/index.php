@@ -1,7 +1,7 @@
 <?php
 
-require __DIR__ . '/GuestBook.php';
-require __DIR__ . '/Uploader.php';
+require __DIR__ . '/Classes/GuestBook.php';
+require __DIR__ . '/Classes/Uploader.php';
 //require __DIR__ . '/Table.php';
 
 ?>
@@ -26,6 +26,9 @@ require __DIR__ . '/Uploader.php';
         <!-- Задание 1.  -->
         <article>
             <?php
+
+
+
             foreach ($guestBook->getData() as $line) {
                 ?>
                 <p><?php echo $line; ?></p>
@@ -36,7 +39,7 @@ require __DIR__ . '/Uploader.php';
         </article>
 
         <article>
-            <form action="/GuestBook.php" method="post">
+            <form action="/Classes/GuestBook.php" method="post">
                 <fieldset>
                     <legend>Добавить комментарий</legend>
                     <textarea class="fullsize" name="comment" id="" cols="30" rows="4"

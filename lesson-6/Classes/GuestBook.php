@@ -8,37 +8,18 @@
  * • Метод save() сохраняет массив в файл
  */
 
-class TextFile
-{
-    protected $data;
-    public $path;
-
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    public function append($text)
-    {
-        $this->data[] = $text;
-    }
-
-    public function save()
-    {
-        file_put_contents($this->path, implode("\n", $this->data));
-    }
-}
+require_once __DIR__ . '/TextFile.php';
 
 class GuestBook extends TextFile
 {
-    public function __construct($path, $data)
+    public function __construct($path)
     {
         $this->path = $path;
-        $this->data = $data;
+        $this->data = file($this->path, FILE_IGNORE_NEW_LINES);
     }
 }
 
-$guestBook = new GuestBook(__DIR__ . '/data/comments.txt', file(__DIR__ . '/data/comments.txt', FILE_IGNORE_NEW_LINES));
+$guestBook = new GuestBook(__DIR__ . '/../data/comments.txt');
 $guestBook->append($_POST['comment']);
 $guestBook->save();
 
