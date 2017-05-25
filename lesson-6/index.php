@@ -27,7 +27,7 @@ require __DIR__ . '/Classes/Uploader.php';
         <article>
             <?php
 
-
+            $guestBook = new GuestBook(__DIR__ . '/data/comments.txt');
 
             foreach ($guestBook->getData() as $line) {
                 ?>
@@ -39,7 +39,7 @@ require __DIR__ . '/Classes/Uploader.php';
         </article>
 
         <article>
-            <form action="/Classes/GuestBook.php" method="post">
+            <form action="/add.php" method="post">
                 <fieldset>
                     <legend>Добавить комментарий</legend>
                     <textarea class="fullsize" name="comment" id="" cols="30" rows="4"
