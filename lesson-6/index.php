@@ -36,7 +36,6 @@ require __DIR__ . '/classes/Uploader.php';
             }
             ?>
         </article>
-
         <article>
             <form action="/add.php" method="post">
                 <fieldset>
@@ -54,13 +53,12 @@ require __DIR__ . '/classes/Uploader.php';
         <!-- Задание 2. Загрузчик файлов -->
         <article>
             <?php
+            $arrayImages = scandir(__DIR__ . '/img/uploads');
+            unset($arrayImages['0'], $arrayImages['1']);
 
-            //$guestBook = new GuestBook(__DIR__ . '/data/comments.txt');
-
-            foreach ($guestBook->getData() as $line) {
+            foreach ($arrayImages as $image) {
                 ?>
-                <p><?php echo $line; ?></p>
-                <hr>
+                <img src="/img/uploads/<?php echo $image; ?>" alt="<?php echo $image; ?>">
                 <?php
             }
             ?>
@@ -70,8 +68,8 @@ require __DIR__ . '/classes/Uploader.php';
             <form action="/upload.php" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Загрузить картинку</legend>
-                    <input type="file" name="fileimage">
-                    <button type="submit" class="btn btn-success">Отправить картинку</button>
+                    <input type="file" name="fileImage">
+                    <button type="submit" class="btn  btn-success">Отправить картинку</button>
                 </fieldset>
             </form>
         </article>

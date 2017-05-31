@@ -8,6 +8,3 @@ $guestBook->append($_POST['comment']);
 $guestBook->save();
 
 header('Location: /');
-
-
-

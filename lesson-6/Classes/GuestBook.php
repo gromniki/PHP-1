@@ -18,9 +18,3 @@ class GuestBook extends TextFile
         $this->data = file($this->path, FILE_IGNORE_NEW_LINES);
     }
 }
-
-
-
-//header('Location: /');
-
-//var_dump($guestBook);
