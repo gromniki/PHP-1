@@ -27,3 +27,5 @@ $table->legs = 6;
 $table->material = 'МДФ';
 
 echo $table->show();
+
+

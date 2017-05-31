@@ -8,21 +8,20 @@
 
 class Uploader
 {
-    public function __construct($fileUser)
+    public function __construct($fileImage)
     {
-        $this->fileUpload = $fileUser;
+        $this->fileUpload = $fileImage;
     }
 
+    public $isUpload;
 
     public function isUploaded()
     {
-        //return $this->fileUser;
-
-
+        $this->isUpload = isset($_POST['fileImage']);
     }
 
 
-    public $er;
+    //public $error;
 
     public function upload()
     {
@@ -35,7 +34,7 @@ class Uploader
 }
 
 
-$uploader = new Uploader(isset($_POST['fileUser']));
+$uploader = new Uploader($_POST['fileImage']);
 //$uploader->isUploaded();
 $uploader->upload();
 

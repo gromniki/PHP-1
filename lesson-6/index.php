@@ -1,8 +1,7 @@
 <?php
 
-require __DIR__ . '/Classes/GuestBook.php';
-require __DIR__ . '/Classes/Uploader.php';
-//require __DIR__ . '/Table.php';
+require __DIR__ . '/classes/GuestBook.php';
+require __DIR__ . '/classes/Uploader.php';
 
 ?>
 
@@ -49,6 +48,34 @@ require __DIR__ . '/Classes/Uploader.php';
             </form>
         </article>
         <!-- /Задание 1.  -->
+
+        <hr>
+
+        <!-- Задание 2. Загрузчик файлов -->
+        <article>
+            <?php
+
+            //$guestBook = new GuestBook(__DIR__ . '/data/comments.txt');
+
+            foreach ($guestBook->getData() as $line) {
+                ?>
+                <p><?php echo $line; ?></p>
+                <hr>
+                <?php
+            }
+            ?>
+        </article>
+
+        <article>
+            <form action="/upload.php" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Загрузить картинку</legend>
+                    <input type="file" name="fileimage">
+                    <button type="submit" class="btn btn-success">Отправить картинку</button>
+                </fieldset>
+            </form>
+        </article>
+        <!-- /Задание 2. Загрузчик файлов -->
     </section>
 </main>
 
