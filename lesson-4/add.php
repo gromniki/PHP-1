@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/fuctions.php';
+require __DIR__ . '/functions.php';
 
 $comments = readFiles(__DIR__ . '/data/comments.txt');
 $comments[] = $_POST['comment'];
