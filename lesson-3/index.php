@@ -30,11 +30,21 @@ if (isset($_GET['arithmetic'])) {
             $result = $num1 * $num2;
             break;
         case '/':
-            $result = $num1 / $num2;
+            if (0 == $num2) {
+                $result = 'На ноль делить нельзя';
+            } else {
+                $result = $num1 / $num2;
+            }
+            break;
+        default:
+            $result = null;
             break;
     }
 } else {
+    $num1 = '';
     $operand = '';
+    $num2 = '';
+    $result = '';
 }
 
 // Создаю массив со знаками операций
@@ -77,10 +87,7 @@ $operandArr = [
                         <?php
                         foreach ($operandArr as $oper) {
                             ?>
-
-                            <option value="<?php echo $oper; ?>"
-                                    <?php if ($operand == $oper) { ?>selected<?php } ?>><?php echo $oper; ?></option>
-
+                            <option value="<?php echo $oper; ?>" <?php if ($operand == $oper) { ?>selected<?php } ?>><?php echo $oper; ?></option>
                             <?php
                         }
                         ?>

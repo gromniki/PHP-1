@@ -17,6 +17,7 @@ image.php — файл-обработчик фотогалереи
 Комментарии Альберта:
 https://github.com/gromniki/profIT-PHP-1/blob/master/lesson-3/lesson-3.php#L31
 Ошибка. Вы допустили ситуацию деления на ноль. А еще не обрабатываете случай, когда операнд не входит в список разрешенных.
+#fixed
 
 https://github.com/gromniki/profIT-PHP-1/blob/master/lesson-3/lesson-3.php#L79
 Здесь не нужны лишние переводы строк. Не разрывайте HTML-тег ими.
