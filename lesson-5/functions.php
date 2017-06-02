@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/data/cities.php';
+$cities = require __DIR__ . '/data/cities.php';
 
 // Функция для игры в города
 function city($char, $arrCities)
@@ -21,3 +21,4 @@ assert('Архангельск' === city('А', $cities));
 assert('Кострома' === city('к', $cities));
 assert('Электрогорск' === city('Э', $cities));
 assert('Улан-Удэ' === city('у', $cities));
+

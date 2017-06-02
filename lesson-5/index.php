@@ -1,6 +1,7 @@
 <?php
 
-require __DIR__ . '/fuctions.php';
+require __DIR__ . '/functions.php';
+$cities = require __DIR__ . '/data/cities.php';
 
 if (isset($_POST['city'])) {
     $city = $_POST['city'];
@@ -12,6 +13,7 @@ if (isset($_POST['city'])) {
         $char = mb_substr($city, -2, 1, 'UTF-8');
     }
 } else {
+    $city = null;
     $char = null;
 }
 
