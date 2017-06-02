@@ -1,7 +1,7 @@
 <?php
 
-require __DIR__ . '/classess/GuestBook.php';
-require __DIR__ . '/classess/Uploader.php';
+require __DIR__ . '/classes/GuestBook.php';
+require __DIR__ . '/classes/Uploader.php';
 
 ?>
 
