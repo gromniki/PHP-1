@@ -7,4 +7,4 @@ $comments[] = $_POST['comment'];
 
 file_put_contents(__DIR__ . '/data/comments.txt', implode("\n", $comments) );
 
-header('Location: /lesson-4.php');
+header('Location: /guestbook.php');
