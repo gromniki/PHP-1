@@ -11,20 +11,25 @@ if (isset($_FILES['fileimage'])) {
     // и отказался от неё.
     $fupload = __DIR__ . '/img/uploads/' . $f['name'];
 
+    $text = '';
 
     if (0 == $f['error']) {
         // Проверяю тип файла JPG или PNG
         if ('image/jpeg' == $f['type'] || 'image/png' == $f['type']) {
             if ($f['size'] > $size) {
-                echo 'Превышен размер файла в 1 Мб. Выберите картинку меньшего размера';
+                $text = 'Превышен размер файла в 1 Мб. Выберите картинку меньшего размера';
             } else {
-                move_uploaded_file($f['tmp_name'], $fupload);
-                echo 'Файл ' . $f['name'] . ' успешно загружен';
+                if ('' == $text) {
+                    move_uploaded_file($f['tmp_name'], $fupload);
+                    $text = 'Файл ' . $f['name'] . ' успешно загружен';
+                }
             }
         } else {
-            echo 'Не правильный тип файла. Можно только JPG или PNG';
+            $text = 'Не правильный тип файла. Можно только JPG или PNG';
         }
     } else {
-        echo 'Вы не выбрали картинку';
+        $text = 'Вы не выбрали картинку';
     }
+
+    echo $text;
 }
