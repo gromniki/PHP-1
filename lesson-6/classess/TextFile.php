@@ -4,8 +4,6 @@
  * Я всё-таки решил создать родительский класс TextFile, чтобы поупражняться в наследовании
  */
 
-//require_once __DIR__ . '/GuestBook.php';
-
 class TextFile
 {
     public $path;
