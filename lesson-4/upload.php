@@ -33,3 +33,4 @@ if (isset($_FILES['fileimage'])) {
 
     echo $text;
 }
+
