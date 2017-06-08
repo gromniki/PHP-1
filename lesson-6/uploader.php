@@ -1,6 +1,5 @@
 <?php
 
-require __DIR__ . '/classes/GuestBook.php';
 require __DIR__ . '/classes/Uploader.php';
 
 ?>
@@ -21,36 +20,8 @@ require __DIR__ . '/classes/Uploader.php';
 
 <main class="page-main">
     <section class="container-center">
-        <h1>Выполнение домашнего задания урока 6&nbsp;курса &laquo;PHP-1&raquo;. ООП.</h1>
-        <!-- Задание 1.  -->
-        <article>
-            <?php
-
-            $guestBook = new GuestBook(__DIR__ . '/data/comments.txt');
-
-            foreach ($guestBook->getData() as $line) {
-                ?>
-                <p><?php echo $line; ?></p>
-                <hr>
-                <?php
-            }
-            ?>
-        </article>
-        <article>
-            <form action="/add.php" method="post">
-                <fieldset>
-                    <legend>Добавить комментарий</legend>
-                    <textarea class="fullsize" name="comment" id="" cols="30" rows="4"
-                              placeholder="Ваш комментарий"></textarea>
-                    <button type="submit" class="btn btn-success">Добавить комментарий</button>
-                </fieldset>
-            </form>
-        </article>
-        <!-- /Задание 1.  -->
-
-        <hr>
-
         <!-- Задание 2. Загрузчик файлов -->
+        <h1>Пишем свой загрузчик файлов на ООП</h1>
         <article>
             <?php
             $arrayImages = scandir(__DIR__ . '/img/uploads');
@@ -65,10 +36,10 @@ require __DIR__ . '/classes/Uploader.php';
         </article>
 
         <article>
-            <form action="/upload.php" method="post" enctype="multipart/form-data">
+            <form action="/handler-uploader.php" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Загрузить картинку</legend>
-                    <input type="file" name="fileImage">
+                    <input type="file" name="fileImage" required>
                     <button type="submit" class="btn  btn-success">Отправить картинку</button>
                 </fieldset>
             </form>
