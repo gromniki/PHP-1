@@ -1,7 +1,10 @@
 <?php
 
-// Функция чтения файла и возвращения его строк в виде массива. Используется для чтения файла с комментариями.
-function readFiles($path)
+/*
+ * Напишите функцию, которая будет читать этот файл и возвращать массив записей гостевой книги
+ */
+
+function arrayEntriesGuestBook($file)
 {
-    return file($path, FILE_IGNORE_NEW_LINES);
+    return file($file, FILE_IGNORE_NEW_LINES);
 }

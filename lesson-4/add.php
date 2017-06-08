@@ -2,7 +2,7 @@
 
 require __DIR__ . '/functions.php';
 
-$comments = readFiles(__DIR__ . '/data/comments.txt');
+$comments = arrayEntriesGuestBook(__DIR__ . '/data/comments.txt');
 $comments[] = $_POST['comment'];
 
 file_put_contents(__DIR__ . '/data/comments.txt', implode("\n", $comments) );

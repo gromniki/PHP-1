@@ -26,7 +26,7 @@ require __DIR__ . '/functions.php';
 
             <!-- Вывод комментариев -->
             <?php
-            foreach (readFiles(__DIR__ . '/data/comments.txt') as $comment) {
+            foreach (arrayEntriesGuestBook(__DIR__ . '/data/comments.txt') as $comment) {
                 ?>
                 <p><?php echo $comment; ?></p>
                 <hr>
