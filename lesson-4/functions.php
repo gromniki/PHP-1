@@ -4,7 +4,7 @@
  * Напишите функцию, которая будет читать этот файл и возвращать массив записей гостевой книги
  */
 
-function arrayEntriesGuestBook($file)
+function guestBook()
 {
-    return file($file, FILE_IGNORE_NEW_LINES);
+    return file(__DIR__ . '/data/comments.txt', FILE_IGNORE_NEW_LINES);
 }
