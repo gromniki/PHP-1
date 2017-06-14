@@ -22,7 +22,7 @@ require __DIR__ . '/functions.php';
     <section class="container-center">
         <!-- Задание 1. Гостевая книга -->
         <article class="guestbook">
-            <h3>1. Гостевая книга</h3>
+            <h3>Гостевая книга</h3>
 
             <!-- Вывод комментариев -->
             <?php
