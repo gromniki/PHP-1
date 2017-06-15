@@ -12,8 +12,6 @@ if (true === $result) {
     echo 'Ошибка загрузки файла';
 }
 
-//header('Location: /');
-
 ?>
 
 <br><a href="/uploader.php">Назад</a>
