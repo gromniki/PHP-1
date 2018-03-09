@@ -22,11 +22,11 @@ require __DIR__ . '/functions.php';
     <section class="container-center">
         <!-- Задание 1. Гостевая книга -->
         <article class="guestbook">
-            <h3>1. Гостевая книга</h3>
+            <h3>Гостевая книга</h3>
 
             <!-- Вывод комментариев -->
             <?php
-            foreach (arrayEntriesGuestBook(__DIR__ . '/data/comments.txt') as $comment) {
+            foreach (guestBook() as $comment) {
                 ?>
                 <p><?php echo $comment; ?></p>
                 <hr>
@@ -40,7 +40,7 @@ require __DIR__ . '/functions.php';
                 <fieldset>
                     <legend>Добавить комментарий</legend>
                     <textarea class="fullsize" name="comment" id="" cols="30" rows="4"
-                              placeholder="Ваш комментарий"></textarea>
+                              placeholder="Ваш комментарий" required></textarea>
                     <button type="submit" class="btn  btn-success">Добавить комментарий</button>
                 </fieldset>
             </form>

@@ -23,19 +23,6 @@ require __DIR__ . '/classes/Uploader.php';
         <!-- Задание 2. Загрузчик файлов -->
         <h1>Пишем свой загрузчик файлов на ООП</h1>
         <article>
-            <?php
-            $arrayImages = scandir(__DIR__ . '/img/uploads');
-            unset($arrayImages['0'], $arrayImages['1']);
-
-            foreach ($arrayImages as $image) {
-                ?>
-                <img src="/img/uploads/<?php echo $image; ?>" alt="<?php echo $image; ?>">
-                <?php
-            }
-            ?>
-        </article>
-
-        <article>
             <form action="/handler-uploader.php" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Загрузить картинку</legend>

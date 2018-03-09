@@ -34,3 +34,5 @@ https://github.com/gromniki/profIT-PHP-1/blob/master/lesson-6/upload.php#L6
 Поток сознания, а не код. Плохо.
 
 Плохо, что вы пишете код "на отвали", не понимая - зачем вы это делаете?
+
+#fixed
