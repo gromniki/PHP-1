@@ -2,9 +2,14 @@
 
 require __DIR__ . '/classes/GuestBook.php';
 
-$record = new GuestBook(__DIR__ . '/data/comments.txt');
+if (isset($_POST['comment'])) {
+    $newRecord = new GuestBookRecord($_POST['comment']);
 
-$record->append($_POST['comment']);
-$record->save();
+    $book = new GuestBook(__DIR__ . '/data/comments.txt');
+    $book->append($newRecord)->save();
 
-header('Location: /lesson-7/guestBook.php');
+    header('Location: /lesson-7/guestBook.php');
+} else {
+    die;
+}
+
