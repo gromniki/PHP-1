@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: gromniki
- * Date: 21.06.2017
- * Time: 21:05
- */
-
 class GuestBookRecord
 {
     protected $author;

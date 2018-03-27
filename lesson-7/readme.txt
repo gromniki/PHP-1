@@ -1,9 +1,11 @@
-/index.php —
-/classes/View.php — основные свойства для гостевой книги
-/classes/Article.php — класс для одной новости
-/classes/News.php — класс для хранилища новостей
-/news.php — отображение списка всех новостей
-/article.php — подробное отображение новости
+/lesson-7/guestBook.php —
+/lesson-7/classes/View.php — основные свойства для гостевой книги
+
+
+/lesson-7/classes/Article.php — класс для одной новости
+/lesson-7/classes/News.php — класс для хранилища новостей
+/lesson-7/news.php — отображение списка всех новостей
+/lesson-7/article.php — подробное отображение новости
 
 ---
 

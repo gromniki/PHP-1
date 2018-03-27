@@ -12,9 +12,10 @@ require_once __DIR__ . '/GuestBookRecord.php';
 
 class GuestBook
 {
+    public $path;
     protected $data;
 
-    public function __construct($file)
+    public function __construct(string $file)
     {
         $lines  = file($file, FILE_IGNORE_NEW_LINES);
         $this->data = [];
@@ -24,25 +25,24 @@ class GuestBook
         }
     }
 
-    public function getRecords()
+    public function getData()
     {
         return $this->data;
     }
 
-    public function add(GuestBookRecord $record)
+    public function append(GuestBookRecord $record)
     {
-        $this->data[] = $record;
+        return $this->data[] = $record;
+    }
+
+    public function save()
+    {
+        $data = [];
+        foreach ($this->getData() as $record){
+            $data[] = $record->getMessage();
+        }
+
+        file_put_contents($this->path, implode("\n", $this->data));
+        //return $this;
     }
 }
-
-
-/*require_once __DIR__ . '/TextFile.php';
-
-class GuestBook extends TextFile
-{
-    public function __construct($path)
-    {
-        $this->path = $path;
-        $this->data = file($this->path, FILE_IGNORE_NEW_LINES);
-    }
-}*/
