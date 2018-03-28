@@ -20,14 +20,4 @@ class GuestBookRecord
     {
         return $this->author;
     }
-
-//    public function render()
-//    {
-//        ob_start();
-//        include __DIR__ . '/../templates/guestBookRecord.php';
-//        $content = ob_get_contents();
-//        ob_end_clean();
-//
-//        return $content;
-//    }
 }
