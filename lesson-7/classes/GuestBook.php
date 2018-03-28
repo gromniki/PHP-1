@@ -5,12 +5,13 @@ require_once __DIR__ . '/GuestBookRecord.php';
 class GuestBook
 {
     public $path;
-    protected $data;
+    protected $data = [];
 
     public function __construct(string $path)
     {
+        $this->path = $path;
         $lines  = file($path, FILE_IGNORE_NEW_LINES);
-        $this->data = [];
+
         foreach ($lines as $line)
         {
             $this->data[] = new GuestBookRecord($line, 'Есенин');

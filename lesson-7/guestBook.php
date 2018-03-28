@@ -1,8 +1,15 @@
 <?php
 
 require __DIR__ . '/classes/GuestBook.php';
+require __DIR__ . '/classes/View.php';
 
 $book = new GuestBook(__DIR__ . '/data/comments.txt');
 
-include __DIR__ . '/templates/guestBook.php';
+$view = new View();
+
+$view->assign('Book', $book)->display(__DIR__ . '/templates/guestBook.php');
+
+//$view->assign('someName', );
+
+//include __DIR__ . '/templates/guestBook.php';
 
