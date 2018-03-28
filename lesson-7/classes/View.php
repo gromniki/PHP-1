@@ -27,11 +27,9 @@ class View
     {
         ob_start();
         include $template;
-        //include __DIR__ . '/../templates/guestBookRecord.php';
         $content = ob_get_contents();
         ob_end_clean();
 
         return $content;
     }
-
 }
