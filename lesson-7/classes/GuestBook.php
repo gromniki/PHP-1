@@ -14,7 +14,7 @@ class GuestBook
 
         foreach ($lines as $line)
         {
-            $this->data[] = new GuestBookRecord($line, 'Есенин');
+            $this->data[] = new GuestBookRecord($line, 'Пушкин');
         }
     }
 

@@ -18,8 +18,12 @@
         <!-- Задание 1. Гостевая книга -->
         <article>
             <?php
-            foreach ($book->getData() as $record) {
-                echo $record->render();
+
+            var_dump($this->data['book']);
+
+            foreach ($this->data as $record) {
+                echo $record;
+                //echo $record->getData();
             }
             ?>
         </article>
