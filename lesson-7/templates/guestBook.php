@@ -21,9 +21,13 @@
 
             var_dump($this->data['book']);
 
-            foreach ($this->data as $record) {
-                echo $record;
-                //echo $record->getData();
+            //var_dump()
+            var_dump($this->data['book']->getData());
+
+            //echo $this->data['book'];
+
+            foreach ($this->data['book']->getData() as $record) {
+                var_dump($record);
             }
             ?>
         </article>
