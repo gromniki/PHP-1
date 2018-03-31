@@ -18,16 +18,13 @@
         <!-- Задание 1. Гостевая книга -->
         <article>
             <?php
-
-            var_dump($this->data['book']);
-
-            //var_dump()
-            var_dump($this->data['book']->getData());
-
-            //echo $this->data['book'];
+            //var_dump($this->data);
 
             foreach ($this->data['book']->getData() as $record) {
-                var_dump($record);
+                //var_dump($record);
+                //echo $record;
+
+                include __DIR__ . '/guestBookRecord.php';
             }
             ?>
         </article>
