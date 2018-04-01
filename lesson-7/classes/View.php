@@ -20,7 +20,7 @@ class View
 
     public function display(string $template)
     {
-        include $template;
+        echo $this->render($template);
     }
 
     public function render(string $template)
