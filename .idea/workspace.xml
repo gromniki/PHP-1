@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5add34cd-0ad3-47ce-9f50-914d94039d02" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/lesson-7/templates/uploader.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lesson-7/uploader.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/lesson-7/classes/View.php" afterPath="$PROJECT_DIR$/lesson-7/classes/View.php" />
-      <change beforePath="$PROJECT_DIR$/lesson-7/data/comments.txt" afterPath="$PROJECT_DIR$/lesson-7/data/comments.txt" />
-      <change beforePath="$PROJECT_DIR$/lesson-7/templates/guestBook.php" afterPath="$PROJECT_DIR$/lesson-7/templates/guestBook.php" />
-      <change beforePath="$PROJECT_DIR$/lesson-7/templates/guestBookRecord.php" afterPath="$PROJECT_DIR$/lesson-7/templates/guestBookRecord.php" />
-      <change beforePath="$PROJECT_DIR$/lesson-7/upload.php" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -282,7 +275,7 @@
       <workItem from="1522473918724" duration="3478000" />
       <workItem from="1522561954496" duration="5489000" />
       <workItem from="1522643489420" duration="3088000" />
-      <workItem from="1522772278824" duration="4648000" />
+      <workItem from="1522772278824" duration="4698000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1520618831909</created>
@@ -375,11 +368,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522610750619</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Добавление файлов загрузки картинок">
+      <created>1522782396091</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1522782396091</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106186000" />
+    <option name="totallyTimeSpent" value="106236000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -422,7 +422,8 @@
     <MESSAGE value="Правка шаблона /templates/guestBook.php" />
     <MESSAGE value="Вторая правка шаблона /templates/guestBook.php" />
     <MESSAGE value="Финальная правка шаблона /templates/guestBook.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Финальная правка шаблона /templates/guestBook.php" />
+    <MESSAGE value="Добавление файлов загрузки картинок" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление файлов загрузки картинок" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
