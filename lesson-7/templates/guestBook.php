@@ -18,6 +18,9 @@
         <!-- Задание 1. Гостевая книга -->
         <article>
             <?php
+
+            var_dump($this->data);
+
             foreach ($this->data['book']->getData() as $record) { ?>
 
                 <p><?php echo $record->getMessage(); ?></p>
