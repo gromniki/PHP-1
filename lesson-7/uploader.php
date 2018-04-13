@@ -1,14 +1,7 @@
 <?php
 
-require_once __DIR__ . '/classes/Uploader.php';
+require __DIR__ . '/classes/View.php';
 
-$uploader = new Uploader('fileImage');
+$view = new View();
 
-$result = $uploader->upload();
-
-if (true === $result) {
-    echo 'Файл успешно загружен';
-} else {
-    echo 'Ошибка загрузки файла';
-}
-
+$view->display(__DIR__ . '/templates/uploader.php');

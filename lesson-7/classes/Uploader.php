@@ -26,6 +26,7 @@ class Uploader
 
     public function upload()
     {
+        //var_dump($_FILES);
         $img = $_FILES[$this->fileImage];
 
         if (true === $this->isUploaded()) {

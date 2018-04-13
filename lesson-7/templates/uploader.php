@@ -18,7 +18,7 @@
         
         <!-- Задание 2. Загрузчик файлов -->
         <article>
-            <form action="/lesson-7/uploader.php" method="post" enctype="multipart/form-data">
+            <form action="/lesson-7/add_image.php" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Загрузить картинку</legend>
                     <input type="file" name="fileImage" required>
