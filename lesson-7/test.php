@@ -8,15 +8,15 @@
 
 class User
 {
-    public $sex;
+    public $gender;
     public $name;
     public $email;
     public $birthday;
 }
 
-function sendMessage (User $user, $message)
+function sendMessage (User $user, $message = null)
 {
-    echo 'Сообщение для пользователя' . $user->name . ' отправлено';
+    echo $message . ', ' . $user->name;
 }
 
 

@@ -13,7 +13,7 @@ class Uploader
     protected $types = ['image/jpeg', 'image/png'];
     protected $path = __DIR__ . '/../img/uploads/';
 
-    public function __construct($fileImage)
+    public function __construct(string $fileImage)
     {
         $this->fileImage = $fileImage;
     }
