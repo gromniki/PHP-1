@@ -41,4 +41,3 @@ class Uploader
         return false;
     }
 }
-
