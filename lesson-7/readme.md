@@ -5,6 +5,13 @@
 * /lesson-7/classes/GuestBook.php — основные свойства для гостевой книги
 * /lesson-7/classes/GuestBookRecord.php — класс для одной записи гостевой книги
 ---
+
+* /lesson-7/uploader.php — контроллер загрузчика изображений
+* /lesson-7/add_image.php — обработчик загрузчика изображений
+* /lesson-7/templates/uploader.php — шаблон отображения загрузчика изображений
+* /lesson-7/classes/Uploader.php — основные свойства загрузчика изображений
+
+---
 * /lesson-7/classes/Article.php — класс для одной новости
 * /lesson-7/classes/News.php — класс для хранилища новостей
 * /lesson-7/news.php — отображение списка всех новостей
